@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h1 #[strong Studio: ] #{studio.studio_name}
+  h2 #[strong Location: ] #{studio.location}
+  h2 #[strong Staff count: ] #{studio.staff_count}
+  h3 #[strong Website: ] #{studio.website}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Games
+
+    dl
+      each game in studio_games
+        dt
+          a(href=game.url) #{game.title} 
+          a (#{game.release_date_formatted})
+        dd #{game.summary}
+
+      else
+        p This studio has no games.
+    hr
+    p
+      a(href=studio.url+'/update') Update studio
+    p
+      a(href=studio.url+'/delete') Delete studio
+

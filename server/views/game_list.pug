@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+    each game in game_list
+      li
+        a(href=game.url) #{game.title}
+        |  (#{game.studio.studio_name})
+        |  (#{game.release_date_formatted})
+
+    else
+      li The PS3 has no games.

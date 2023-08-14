@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='studio_name') Studio Name:
+      input#studio_name.form-control(type='text' placeholder='Studio name' name='studio_name' required='true' value=(undefined===studio ? '' : studio.studio_name) )
+      label(for='family_name')  Staff Count:
+      input#staff_count.form-control(type='text' placeholder='Staff Count' name='staff_count' required='true' value=(undefined===studio ? '' : studio.staff_count))
+    div.form-group
+      label(for='location')  Location:
+      input#location.form-control(type='text' placeholder='Location' name='location' required='true' value=(undefined===studio ? '' : studio.location))
+      label(for='website')  Website:
+      input#website.form-control(type='text' placeholder='Website' name='website' required='true' value=(undefined===studio ? '' : studio.website))
+    button.btn.btn-primary(type='submit') Submit
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

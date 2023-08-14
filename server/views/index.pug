@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em LocalGameInventory], a very basic Express website developed with reference from Mozilla tutorials.
+
+  h1 Dynamic content
+
+  p The game inventory has the following record counts:
+
+  ul
+    li #[strong Games:] !{game_count}
+    li #[strong Games fully released:] !{game_released_count}
+    li #[strong Studios:] !{studio_count}
