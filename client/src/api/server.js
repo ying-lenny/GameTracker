@@ -1,8 +1,6 @@
-import axios from "axios"
-
-export const getGamesList = async () => {
+export const getDmcDetails= async () => {
   try {
-    const res = await fetch("http://localhost:5000/catalog/games", {
+    const res = await fetch(`https://rawg.io/api/games/devil-may-cry-5?key=${process.env.REACT_APP_RAWR_Key}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

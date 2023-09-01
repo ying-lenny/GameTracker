@@ -1,4 +1,4 @@
-import GameList from './pages/GameList';
+import GameDetails from './pages/GameDetails';
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import './App.css';
 
@@ -8,17 +8,12 @@ function App() {
       <h1>Welcome to Game Tracker</h1>
 
       <BrowserRouter>
-        <Link to="/catalog/games">
-          <p>Click here to see Games!</p>
+        <Link to="/catalog/game/devil-may-cry-5/">
+          <p>Click here to see a game's details!</p>
         </Link>
         <Routes>
-          <Route 
-            path="/"
-          />
-          <Route 
-            path='/catalog/games'
-            element={GameList}
-          />
+          <Route exact path="/"/>
+          <Route path="/catalog/game/devil-may-cry-5/" element={<GameDetails/>} />
         </Routes>
       </BrowserRouter>
     </div>
