@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getDmcDetails } from "../api/server";
+import { getGameDetails } from "../api/RAWG";
 import { useEffect, useState } from "react";
 
 function GameDetails() {
@@ -9,8 +9,8 @@ function GameDetails() {
   const { id } = useParams();
 
   useEffect(() => {
-    getDmcDetails().then((game) => setDetails(game));
-  }, [])
+    getGameDetails(id).then((game) => setDetails(game));
+  }, [id])
   
   return (
     <div>
@@ -21,4 +21,4 @@ function GameDetails() {
 
 
 
-export default GameDetails
+export default GameDetails;

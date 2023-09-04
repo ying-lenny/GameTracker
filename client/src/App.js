@@ -1,6 +1,8 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './Styles/main.css';
 import GameDetails from './pages/GameDetails';
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import './App.css';
+import Homepage from './pages/Homepage';
+import GameList from "./pages/GameList";
 
 function App() {
   return (
@@ -8,12 +10,11 @@ function App() {
       <h1>Welcome to Game Tracker</h1>
 
       <BrowserRouter>
-        <Link to="/catalog/game/devil-may-cry-5/">
-          <p>Click here to see a game's details!</p>
-        </Link>
         <Routes>
-          <Route exact path="/"/>
+          <Route exact path="/" element={<Homepage/>}/>
+          <Route exact path="/catalog/game/:id" element={<GameDetails/>}/>
           <Route path="/catalog/game/devil-may-cry-5/" element={<GameDetails/>} />
+          <Route path="catalog/games/" element={<GameList/>}/>
         </Routes>
       </BrowserRouter>
     </div>
