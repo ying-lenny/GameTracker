@@ -1,7 +1,31 @@
 .game-card {
-  background-color: aqua;
-  width: 25%;
-  & img {
-    width: 100%;
+  background-color: rgb(76, 76, 76);
+  width: 20vw;
+  margin: 1em;
+  & .game-card-image {
+    width: 20vw;
+    & :hover {
+      filter:grayscale(50%);
+      -webkit-filter: grayscale(50%);
+      -moz-filter: grayscale(50%);
+    }
+    & img {
+      object-fit: cover;
+      aspect-ratio: 3 / 2;
+      width: 100%;
+    }
+  }
+  & .game-card-name {
+    text-align: center;
+    word-wrap: break-word;
+    width: 90%;
+    margin: auto;
+    color: white;
+    & :hover {
+      color: lightgray;
+    }
+  }
+  & a {
+    text-decoration: none;
   }
 }

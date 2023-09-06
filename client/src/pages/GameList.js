@@ -27,8 +27,8 @@ const GameList = () => {
 
   return (
     <div className="game-list">
-      <h2>Game List!</h2>
-      <ul>
+      <h2>20 most popular games</h2>
+      <ul className="game-list-ul">
         {games.map((game) => {
           return (
             <GameCard
