@@ -10,6 +10,9 @@ function Header() {
       <Link to={`/catalog/games/`}>
         <h2>All Games</h2>
       </Link>
+      <Link to={`/catalog/genres/`}>
+        <h2>Genres</h2>
+      </Link>
     </div>
   )
 }

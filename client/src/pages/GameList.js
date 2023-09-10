@@ -12,6 +12,7 @@ const GameList = () => {
     });
   }, [listChoice]);
 
+  // eslint-disable-next-line
   const handleListChoice = (e) => {
     e.preventDefault();
     switch (e.target.value) {
