@@ -4,7 +4,7 @@ import GameCard from "../components/GameCard";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
-  const [listChoice, setListChoice] = useState(getPopularGames);
+  const [listChoice, setListChoice] = useState(getPopularGames());
   
   useEffect(() => {
     listChoice.then((gameData) => {
@@ -22,7 +22,6 @@ const GameList = () => {
       default:
         setListChoice(getPopularGames);
         break;
-
     }
   };
 

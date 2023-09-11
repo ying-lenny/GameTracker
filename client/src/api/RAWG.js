@@ -38,7 +38,7 @@ export const getGenreDetails = async (id) => {
 
 export const getPopularGames = async () => {
   try {
-    const res = await fetch(`https://rawg.io/api/games?&page_size=40&key=${process.env.REACT_APP_RAWR_Key}`, {
+    const res = await fetch(`https://rawg.io/api/games?page_size=40&key=${process.env.REACT_APP_RAWR_Key}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -49,6 +49,27 @@ export const getPopularGames = async () => {
       },
     });
     const data = await res.json();
+    return data.results;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const getGamesByGenre = async (slug) => {
+  console.log(slug);
+  try {
+    const res = await fetch(`https://rawg.io/api/games?genres=${slug}&key=${process.env.REACT_APP_RAWR_Key}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        //!Fix Authorization
+        // Authorization: `Bearer ${
+        //   JSON.parse(localStorage.getItem("user")).token
+        // }`,
+      },
+    });
+    const data = await res.json();
+    console.log(data.results)
     return data.results;
   } catch (error) {
     throw error;
