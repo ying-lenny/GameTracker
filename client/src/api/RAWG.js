@@ -56,7 +56,6 @@ export const getPopularGames = async () => {
 }
 
 export const getGamesByGenre = async (slug) => {
-  console.log(slug);
   try {
     const res = await fetch(`https://rawg.io/api/games?genres=${slug}&key=${process.env.REACT_APP_RAWR_Key}`, {
       method: "GET",
@@ -69,7 +68,6 @@ export const getGamesByGenre = async (slug) => {
       },
     });
     const data = await res.json();
-    console.log(data.results)
     return data.results;
   } catch (error) {
     throw error;

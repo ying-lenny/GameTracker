@@ -7,9 +7,9 @@ function GenreDeails() {
   
   const [games, setGames] = useState([]);
   const [details, setDetails] = useState({});
-  const { name, description, slug } = details;
+  const { name, description } = details;
   const { id } = useParams();
-  const [list, setList] = useState(getGamesByGenre(slug));
+  const [list, setList] = useState(getGamesByGenre(id));
 
   useEffect(() => {
     getGenreDetails(id).then((genre) => setDetails(genre));
@@ -26,10 +26,10 @@ function GenreDeails() {
       e.preventDefault();
       switch (e.target.value) {
         case "popular":
-          setList(getGamesByGenre());
+          setList(getGamesByGenre(id));
           break;
         default:
-          setList(getGamesByGenre());
+          setList(getGamesByGenre(id));
           break;
       }
     };
@@ -38,8 +38,6 @@ function GenreDeails() {
     <div>
       <h2>{name}</h2>
       <div dangerouslySetInnerHTML={{__html: description}}/>
-      <h4>{games.length}</h4>
-      <h4>{slug}</h4>
       <ul className="game-list-ul">
         {games.map((game) => {
           return (
