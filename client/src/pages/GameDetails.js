@@ -5,37 +5,59 @@ import { useEffect, useState } from "react";
 function GameDetails() {
   
   const [details, setDetails] = useState({});
-  const { name, description, metacritic, released, rating, parent_platforms, genres } = details;
+  const { 
+    name, description, metacritic, released, 
+    rating, platforms, genres, tags
+  } = details;
   const { id } = useParams();
 
   useEffect(() => {
     getGameDetails(id).then((game) => setDetails(game));
   }, [id])
-
-  // console.log(genres)
-  // console.log(parent_platforms)
   
   return (
     <div>
       <h2>{name}</h2>
       <div dangerouslySetInnerHTML={{__html: description}}/>
-      <h4>{metacritic}</h4>
-      <h4>{released}</h4>
-      <h4>{rating}</h4>
-      {/* <ul>
-        {parent_platforms.map((platform) => {
+      <h4>Metacritic review: {metacritic}</h4>
+      <h4>Release Date: {released}</h4>
+      <h4>Rating: {rating} / 5</h4>
+
+      <h1>Platforms</h1>
+      {platforms && (
+        <ul>
+        {platforms.map(({platform}) => {
           return (
-            <h3>{platform.name}</h3>
+            <li key={platform.id}>
+              <h2>{platform.name}</h2>
+            </li>
           );
         })}
-      </ul> */}
-      {/* <ul>
+      </ul>
+      )}
+
+      <h3>Genres</h3>
+      {genres && (
+        <ul>
         {genres.map((genre) => (
-          <li>
+          <li key={genre.id}>
             <h3>{genre.name}</h3>
           </li>
         ))}
-      </ul> */}
+      </ul>
+      )}
+
+      <h3>Tags</h3>
+      {tags && (
+        <ul>
+        {tags.map((tag) => (
+          <li key={tag.id}>
+            <h3>{tag.name}</h3>
+          </li>
+        ))}
+      </ul>
+      )}
+      
     </div>
   )
 }
