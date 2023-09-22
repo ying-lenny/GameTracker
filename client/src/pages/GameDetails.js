@@ -51,7 +51,7 @@ function GameDetails() {
       {tags && (
         <ul>
         {tags.map((tag) => (
-          <li key={tag.id}>
+          <li className="tag" key={tag.id}>
             <h3>{tag.name}</h3>
           </li>
         ))}
