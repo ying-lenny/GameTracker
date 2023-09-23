@@ -1,8 +1,11 @@
 body {
-  width: 90%;
-  background-color: black;
-  margin: auto;
+  background-color: rgb(39, 34, 34);
   color: white;
+}
+
+.body {
+  width: 90%;
+  margin: auto;
 }
 
 .game-card {
@@ -45,4 +48,60 @@ body {
   margin: auto;
   justify-content: center;
   width: 90vw;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  color: black;
+  width: 10vw;
+}
+.dropdown-content ul {
+  margin: 0;
+  padding: 0.5em;
+  list-style: none;
+}
+.dropdown-content ul li {
+  padding-left: 1em;
+  margin: 2px;
+}
+.dropdown-content ul li:hover {
+  cursor: pointer;
+  background-color: gray;
+  border-radius: 0.5em;
+}
+
+.show {
+  display: block;
+}
+
+.title {
+  text-align: center;
+}
+
+.header {
+  background-color: black;
+}
+.header .header-body {
+  display: flex;
+  width: 90%;
+  margin: auto;
+}
+.header .header-body h3 {
+  padding: 1em;
+  text-decoration: none;
+  color: white;
+}
+.header .header-body a {
+  text-decoration: none;
+}
+.header .header-body a :first-child {
+  padding-left: 0;
 }/*# sourceMappingURL=main.css.map */

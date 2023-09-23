@@ -1,0 +1,19 @@
+.header {
+  background-color: black;
+  .header-body {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    h3 {
+      padding: 1em;
+      text-decoration: none;
+      color: white;
+    }
+    a {
+      text-decoration: none;
+      :first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}

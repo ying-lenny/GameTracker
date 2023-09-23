@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
 import { getGameDetails } from "../api/RAWG";
 import { useEffect, useState } from "react";
+import GameAchievements from "../components/GameAchievements";
 
 function GameDetails() {
   
   const [details, setDetails] = useState({});
   const { 
     name, description, metacritic, released, 
-    rating, platforms, genres, tags
+    rating, platforms, genres, tags,
+    parent_achievements_count
   } = details;
   const { id } = useParams();
 
@@ -50,14 +52,17 @@ function GameDetails() {
       <h3>Tags</h3>
       {tags && (
         <ul>
-        {tags.map((tag) => (
+        {tags.slice(0, 6).map((tag) => (
           <li className="tag" key={tag.id}>
             <h3>{tag.name}</h3>
           </li>
         ))}
       </ul>
       )}
-      
+
+      <GameAchievements
+        achievement_count = {parent_achievements_count}
+      />
     </div>
   )
 }

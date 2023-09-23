@@ -1,8 +1,8 @@
 function Homepage() {
   return (
-    <div>
+    <section className="homepage">
       <h2>Hello</h2>
-    </div>
+    </section>
   );
 }
 

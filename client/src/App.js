@@ -12,6 +12,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Header/>
+      <div className="body">
         <Routes>
           <Route exact path="/" element={<Homepage/>}/>
           <Route path="/catalog/games/" element={<GameList/>}/>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/catalog/genres/" element={<GenreList/>}/>
           <Route exact path="/catalog/genre/:id" element={<GenreDeails/>}/>
         </Routes>
+      </div>
       </BrowserRouter>
     </div>
   );
