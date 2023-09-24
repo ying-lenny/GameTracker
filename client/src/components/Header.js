@@ -11,7 +11,7 @@ function Header() {
           <h3>All Games</h3>
         </Link>
         <Link to={`/catalog/genres/`}>
-          <h3>Genres</h3>
+          <h3>All Genres</h3>
         </Link>
       </div>
     </section>
