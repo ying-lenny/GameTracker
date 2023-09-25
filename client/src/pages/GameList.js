@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { getPopularGames } from "../api/RAWG";
+import { getAllGames } from "../api/RAWG";
 import GameCard from "../components/GameCard";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
-  const [listChoice, setListChoice] = useState(getPopularGames());
-  
+  const [listChoice, setListChoice] = useState(getAllGames());
+
+
   useEffect(() => {
     listChoice.then((gameData) => {
       setGames([...gameData]);
@@ -16,21 +17,28 @@ const GameList = () => {
   const handleListChoice = (e) => {
     e.preventDefault();
     switch (e.target.value) {
-      case "popular":
-        setListChoice(getPopularGames);
+      case "AddedDate":
+        break;
+      case "Name":
+        console.log(e.target.value);
+        break;
+      case "ReleaseDate":
+        console.log(e.target.value);
+        break;
+      case "Popular":
+        console.log(e.target.value);
+        break;
+      case "AvgRating":
+        console.log(e.target.value);
         break;
       default:
-        setListChoice(getPopularGames);
+        console.log(e.target.value);
         break;
     }
   };
 
   function toggleDropdown() {
     document.getElementById("orderDropdown").classList.toggle("show");
-  }
-
-  function sayHi() {
-    alert("Say hi");
   }
 
   window.onclick = function(event) {
@@ -50,14 +58,14 @@ const GameList = () => {
     <div className="game-list">
       <h1 className="title">All Games</h1>
       <div className="dropdown">
-        <button className="dropdownBtn" onClick={toggleDropdown}>Order By:</button>
+        <button id="order-btn" className="dropdownBtn" onClick={toggleDropdown}>Order By: Popularity</button>
         <div className="dropdown-content" id="orderDropdown">
           <ul>
-            <li onClick={sayHi}><span className="dropdown-span">Date Added</span></li>
-            <li onClick={sayHi}><span className="dropdown-span">Name</span></li>
-            <li onClick={sayHi}><span className="dropdown-span">Release Data</span></li>
-            <li onClick={sayHi}><span className="dropdown-span">Popularity</span></li>
-            <li onClick={sayHi}><span className="dropdown-span">Average Rating</span></li>
+            <li onClick={handleListChoice}><button value="AddedDate" className="dropdown-span">Date Added</button></li>
+            <li onClick={handleListChoice}><button value="Name" className="dropdown-span">Name</button></li>
+            <li onClick={handleListChoice}><button value="ReleaseDate" className="dropdown-span">Release Date</button></li>
+            <li onClick={handleListChoice}><button value="Popular" className="dropdown-span">Popularity</button></li>
+            <li onClick={handleListChoice}><button value="AvgRating" className="dropdown-span">Average Rating</button></li>
           </ul>
         </div>
       </div>

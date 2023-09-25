@@ -36,7 +36,7 @@ export const getGenreDetails = async (id) => {
   }
 }
 
-export const getPopularGames = async () => {
+export const getAllGames = async () => {
   try {
     const res = await fetch(`https://rawg.io/api/games?page_size=40&key=${process.env.REACT_APP_RAWR_Key}`, {
       method: "GET",

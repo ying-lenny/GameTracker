@@ -53,9 +53,9 @@ body {
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-left: 2em;
 }
-
-.dropdown-content {
+.dropdown .dropdown-content {
   display: none;
   position: absolute;
   z-index: 1;
@@ -63,22 +63,24 @@ body {
   color: black;
   width: 10vw;
 }
-.dropdown-content ul {
+.dropdown .dropdown-content ul {
   margin: 0;
   padding: 0.5em;
   list-style: none;
 }
-.dropdown-content ul li {
-  padding-left: 1em;
+.dropdown .dropdown-content ul li {
   margin: 2px;
 }
-.dropdown-content ul li:hover {
+.dropdown .dropdown-content ul li:hover {
   cursor: pointer;
   background-color: gray;
   border-radius: 0.5em;
 }
-
-.show {
+.dropdown .dropdown-content ul li .dropdown-span {
+  width: 100%;
+  padding: 1em;
+}
+.dropdown .show {
   display: block;
 }
 
