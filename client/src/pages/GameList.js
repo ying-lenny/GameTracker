@@ -6,6 +6,7 @@ const GameList = () => {
   const [games, setGames] = useState([]);
   const [listChoice, setListChoice] = useState(getAllGames());
 
+  const OrderButton = document.getElementById('order-btn');
 
   useEffect(() => {
     listChoice.then((gameData) => {
@@ -18,6 +19,7 @@ const GameList = () => {
     e.preventDefault();
     switch (e.target.value) {
       case "AddedDate":
+        OrderButton.textContent += 'Date Added'
         break;
       case "Name":
         console.log(e.target.value);
@@ -58,7 +60,7 @@ const GameList = () => {
     <div className="game-list">
       <h1 className="title">All Games</h1>
       <div className="dropdown">
-        <button id="order-btn" className="dropdownBtn" onClick={toggleDropdown}>Order By: Popularity</button>
+        <button id="order-btn" className="dropdownBtn" onClick={toggleDropdown}>Order By: </button>
         <div className="dropdown-content" id="orderDropdown">
           <ul>
             <li onClick={handleListChoice}><button value="AddedDate" className="dropdown-span">Date Added</button></li>
