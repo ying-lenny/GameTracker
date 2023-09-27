@@ -7,6 +7,7 @@ const GameList = () => {
   const [listChoice, setListChoice] = useState(getAllGames());
 
   const OrderButton = document.getElementById('order-btn');
+  let OrderButtonText = "Order by: "
 
   useEffect(() => {
     listChoice.then((gameData) => {
@@ -19,22 +20,22 @@ const GameList = () => {
     e.preventDefault();
     switch (e.target.value) {
       case "AddedDate":
-        OrderButton.textContent += 'Date Added'
+        OrderButton.textContent = `${OrderButtonText} Date added`
         break;
       case "Name":
-        console.log(e.target.value);
+        OrderButton.textContent = `${OrderButtonText} Name`
         break;
       case "ReleaseDate":
-        console.log(e.target.value);
+        OrderButton.textContent = `${OrderButtonText} Release Date`
         break;
       case "Popular":
-        console.log(e.target.value);
+        OrderButton.textContent = `${OrderButtonText} Popular`
         break;
       case "AvgRating":
-        console.log(e.target.value);
+        OrderButton.textContent = `${OrderButtonText} Average Rating`
         break;
       default:
-        console.log(e.target.value);
+        OrderButton.textContent = `${OrderButtonText} Popular`
         break;
     }
   };
@@ -60,7 +61,7 @@ const GameList = () => {
     <div className="game-list">
       <h1 className="title">All Games</h1>
       <div className="dropdown">
-        <button id="order-btn" className="dropdownBtn" onClick={toggleDropdown}>Order By: </button>
+        <button id="order-btn" className="dropdownBtn" onClick={toggleDropdown}>{OrderButtonText}</button>
         <div className="dropdown-content" id="orderDropdown">
           <ul>
             <li onClick={handleListChoice}><button value="AddedDate" className="dropdown-span">Date Added</button></li>
