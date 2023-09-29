@@ -15,24 +15,28 @@ const GameList = () => {
     });
   }, [listChoice]);
 
-  // eslint-disable-next-line
   const handleListChoice = (e) => {
     e.preventDefault();
     switch (e.target.value) {
       case "AddedDate":
         OrderButton.textContent = `${OrderButtonText} Date added`
+        setListChoice(getAllGames("added"));
         break;
       case "Name":
         OrderButton.textContent = `${OrderButtonText} Name`
+        setListChoice(getAllGames("name"));
         break;
       case "ReleaseDate":
         OrderButton.textContent = `${OrderButtonText} Release Date`
+        setListChoice(getAllGames("released"));
         break;
       case "Popular":
         OrderButton.textContent = `${OrderButtonText} Popular`
+        setListChoice(getAllGames("popular"));
         break;
       case "AvgRating":
         OrderButton.textContent = `${OrderButtonText} Average Rating`
+        setListChoice(getAllGames("rating"));
         break;
       default:
         OrderButton.textContent = `${OrderButtonText} Popular`
@@ -61,7 +65,7 @@ const GameList = () => {
     <div className="game-list">
       <h1 className="title">All Games</h1>
       <div className="dropdown">
-        <button id="order-btn" className="dropdownBtn" onClick={toggleDropdown}>{OrderButtonText}</button>
+        <button id="order-btn" className="dropdownBtn" onClick={toggleDropdown}>{OrderButtonText}: Popular</button>
         <div className="dropdown-content" id="orderDropdown">
           <ul>
             <li onClick={handleListChoice}><button value="AddedDate" className="dropdown-span">Date Added</button></li>
