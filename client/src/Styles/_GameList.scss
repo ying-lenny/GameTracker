@@ -10,7 +10,10 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  margin-left: 2em;
+  margin-left: 3em;
+  .dropdownBtn {
+    padding: 1em;
+  }
   .dropdown-content {
     display: none;
     position: absolute;

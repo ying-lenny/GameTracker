@@ -53,7 +53,10 @@ body {
 .dropdown {
   position: relative;
   display: inline-block;
-  margin-left: 2em;
+  margin-left: 3em;
+}
+.dropdown .dropdownBtn {
+  padding: 1em;
 }
 .dropdown .dropdown-content {
   display: none;

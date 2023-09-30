@@ -7,7 +7,7 @@ const GameList = () => {
   const [listChoice, setListChoice] = useState(getAllGames());
 
   const OrderButton = document.getElementById('order-btn');
-  let OrderButtonText = "Order by: "
+  let OrderButtonText = "Order by: ";
 
   useEffect(() => {
     listChoice.then((gameData) => {
@@ -16,31 +16,32 @@ const GameList = () => {
   }, [listChoice]);
 
   const handleListChoice = (e) => {
+
     e.preventDefault();
     switch (e.target.value) {
       case "AddedDate":
-        OrderButton.textContent = `${OrderButtonText} Date added`
+        OrderButton.textContent = `${OrderButtonText} Date added`;
         setListChoice(getAllGames("added"));
-        break;
+        return;
       case "Name":
         OrderButton.textContent = `${OrderButtonText} Name`
         setListChoice(getAllGames("name"));
-        break;
+        return;
       case "ReleaseDate":
         OrderButton.textContent = `${OrderButtonText} Release Date`
         setListChoice(getAllGames("released"));
-        break;
+        return;
       case "Popular":
         OrderButton.textContent = `${OrderButtonText} Popular`
         setListChoice(getAllGames("popular"));
-        break;
+        return;
       case "AvgRating":
         OrderButton.textContent = `${OrderButtonText} Average Rating`
         setListChoice(getAllGames("rating"));
-        break;
+        return;
       default:
         OrderButton.textContent = `${OrderButtonText} Popular`
-        break;
+        return;
     }
   };
 
@@ -65,7 +66,7 @@ const GameList = () => {
     <div className="game-list">
       <h1 className="title">All Games</h1>
       <div className="dropdown">
-        <button id="order-btn" className="dropdownBtn" onClick={toggleDropdown}>{OrderButtonText}: Popular</button>
+        <button id="order-btn" className="dropdownBtn" onClick={toggleDropdown}>{OrderButtonText}Popular</button>
         <div className="dropdown-content" id="orderDropdown">
           <ul>
             <li onClick={handleListChoice}><button value="AddedDate" className="dropdown-span">Date Added</button></li>
@@ -75,6 +76,7 @@ const GameList = () => {
             <li onClick={handleListChoice}><button value="AvgRating" className="dropdown-span">Average Rating</button></li>
           </ul>
         </div>
+        <button>Submit</button>
       </div>
         
       <ul className="game-list-ul">
