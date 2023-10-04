@@ -5,6 +5,7 @@ import GenreDeails from "./pages/GenreDetails";
 import Homepage from './pages/Homepage';
 import GameList from "./pages/GameList";
 import GenreList from "./pages/GenreList";
+import LoginPage from "./pages/Login";
 import Header from "./components/Header";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/catalog/games/" element={<GameList/>}/>
           <Route exact path="/catalog/game/:id" element={<GameDetails/>}/>
           <Route path="/catalog/genres/" element={<GenreList/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
           <Route exact path="/catalog/genre/:id" element={<GenreDeails/>}/>
         </Routes>
       </div>

@@ -13,6 +13,9 @@ function Header() {
         <Link to={`/catalog/genres/`}>
           <h3>All Genres</h3>
         </Link>
+        <Link to={`/login/`}>
+          <h3>Sign in/Register</h3>
+        </Link>
       </div>
     </section>
   )

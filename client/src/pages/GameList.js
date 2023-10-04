@@ -76,7 +76,6 @@ const GameList = () => {
             <li onClick={handleListChoice}><button value="AvgRating" className="dropdown-span">Average Rating</button></li>
           </ul>
         </div>
-        <button>Submit</button>
       </div>
         
       <ul className="game-list-ul">
