@@ -6,6 +6,7 @@ import Homepage from './pages/Homepage';
 import GameList from "./pages/GameList";
 import GenreList from "./pages/GenreList";
 import LoginPage from "./pages/Login";
+import Register from "./pages/Register";
 import Header from "./components/Header";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/catalog/game/:id" element={<GameDetails/>}/>
           <Route path="/catalog/genres/" element={<GenreList/>}/>
           <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/register" element={<Register/>}/>
           <Route exact path="/catalog/genre/:id" element={<GenreDeails/>}/>
         </Routes>
       </div>

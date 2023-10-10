@@ -14,7 +14,10 @@ function Header() {
           <h3>All Genres</h3>
         </Link>
         <Link to={`/login/`}>
-          <h3>Sign in/Register</h3>
+          <h3>Sign in</h3>
+        </Link>
+        <Link to={`/register/`}>
+          <h3>Register</h3>
         </Link>
       </div>
     </section>

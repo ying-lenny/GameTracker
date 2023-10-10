@@ -40,39 +40,44 @@ const Register = ({ isAutherized }) => {
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <input
-            type=""
-            name=""
-            id=""
+            type="text"
+            name="name"
+            id="name"
             value={name}
-            placeholder=""
+            placeholder="Enter your name"
             onChange={onChange}
           />
           <input
-            type=""
-            name=""
-            id=""
+            type="email"
+            name="email"
+            id="email"
             value={email}
-            placeholder=""
+            placeholder="Enter your emai."
             onChange={onChange}
           />
           <input
-            type=""
-            name=""
-            id=""
+            type="password"
+            name="password"
+            id="password"
             value={password}
-            placeholder=""
+            placeholder="Enter your password"
             onChange={onChange}
           />
           <input
-            type=""
-            name=""
-            id=""
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
             value={confirmPassword}
-            placeholder=""
+            placeholder="Confirm password"
             onChange={onChange}
           />
         </div>
+        <div className="form-group">
+          <input type="submit" value="Register"/>
+        </div>
       </form>
     </div>
-  )
-}
+  );
+};
+
+export default Register;
