@@ -14,6 +14,7 @@ const Register = ({ isAutherized }) => {
 
   useEffect(() => {
     if (isReady) {
+      console.log(formData)
       registerUser(formData).then((data) => setAuthData(data));
     }
   }, [isReady, formData, isAutherized]);
@@ -21,7 +22,7 @@ const Register = ({ isAutherized }) => {
   const { name, email, password, confirmPassword } = formData
 
   const onChange = (e) => {
-    setFormData({ ...formData, })
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e) => {
