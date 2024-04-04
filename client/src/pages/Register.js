@@ -14,6 +14,7 @@ const Register = ({ isAutherized }) => {
 
   useEffect(() => {
     if (isReady) {
+      console.log(isReady)
       console.log(formData)
       registerUser(formData).then((data) => setAuthData(data));
     }
@@ -53,7 +54,7 @@ const Register = ({ isAutherized }) => {
             name="email"
             id="email"
             value={email}
-            placeholder="Enter your emai."
+            placeholder="Enter your email"
             onChange={onChange}
           />
           <input

@@ -2,6 +2,8 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/user");
+var dotenv = require('dotenv')
+dotenv.config();
 
 exports.registerUser = asyncHandler(async function (req, res) {
   const { email, password, name } = req.body;
@@ -20,7 +22,7 @@ exports.registerUser = asyncHandler(async function (req, res) {
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
 
-  const user = await User.create({ email, password})
+  const user = await User.create({ email, password: hashedPassword, name})
   if (user) {
     res.status(201).json({
       _id: user.id,
@@ -33,3 +35,7 @@ exports.registerUser = asyncHandler(async function (req, res) {
     throw new Error("Invalid user data!")
   }
 })
+
+function generateToken(id) {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
+}
