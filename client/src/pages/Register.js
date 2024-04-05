@@ -10,15 +10,6 @@ const Register = ({ isAutherized }) => {
   });
 
   const [authData, setAuthData] = useState({});
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    if (isReady) {
-      console.log(isReady)
-      console.log(formData)
-      registerUser(formData).then((data) => setAuthData(data));
-    }
-  }, [isReady, formData, isAutherized]);
 
   const { name, email, password, confirmPassword } = formData
 
@@ -31,8 +22,7 @@ const Register = ({ isAutherized }) => {
     if (password !== confirmPassword) {
       alert("Passwords do not match");
     } else {
-      setIsReady(true);
-      window.location.reload();
+      registerUser(formData).then((data) => setAuthData(data));
     }
   };
 

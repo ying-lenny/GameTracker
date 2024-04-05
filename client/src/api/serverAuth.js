@@ -2,8 +2,6 @@ import axios from "axios";
 
 export const registerUser = async (user) => {
   try {
-    console.log("Register User test 2")
-    console.log(user)
     const res = await fetch('http://localhost:5000/users/register', {
     method: "POST",
       headers: {
@@ -16,12 +14,12 @@ export const registerUser = async (user) => {
       })
     });
     if (res.data) {
-      console.log("Register User test 3")
       localStorage.setItem("user", JSON.stringify(res.data));
     }
-    console.log(res.data)
     return res.data;
-  } catch (error) {}
+  } catch (error) {
+    throw error
+  }
 };
 
 export const loginUser = async (user) => {
