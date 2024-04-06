@@ -16,6 +16,8 @@ export const registerUser = async (user) => {
     if (res.data) {
       localStorage.setItem("user", JSON.stringify(res.data));
     }
+    console.log(res.status)
+    console.log("Account Created")
     return res.data;
   } catch (error) {
     throw error
