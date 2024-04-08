@@ -28,14 +28,9 @@ exports.registerUser = asyncHandler(async function (req, res) {
       _id: user.id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id),
     });
   } else {
     res.status(400);
     throw new Error("Invalid user data!")
   }
 })
-
-function generateToken(id) {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
-}
