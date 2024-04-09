@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { loginUser } from "../api/serverAuth";
+import { Link } from "react-router-dom";
 
 const LoginPage = ({isAutherized}) => {
   const [formData, setFormData] = useState({
@@ -55,6 +56,7 @@ const LoginPage = ({isAutherized}) => {
         <div>
           <input type="submit" value="Login"/>
         </div>
+        <h3>New User? Click <Link to={"/register"}>here to create an account</Link></h3>
       </form>
     </div>
   )

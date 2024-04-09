@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { registerUser } from "../api/serverAuth";
+import { Link } from "react-router-dom";
 
 const Register = ({ isAutherized }) => {
   const [formData, setFormData] = useState({
@@ -68,6 +69,7 @@ const Register = ({ isAutherized }) => {
           <input type="submit" value="Register"/>
         </div>
       </form>
+      <h3>Already have an account?, click <Link to={"/login"}>here to log in</Link></h3>
     </div>
   );
 };
